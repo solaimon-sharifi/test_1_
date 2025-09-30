@@ -47,3 +47,22 @@ def square_root(self, x):
 def power(self, base, exponent):
     """Calculate base raised to the power of exponent."""
     return power(base, exponent)
+
+    def memory_add(self, value):
+    """
+    Add a value to the memory.
+    
+    Args:
+        value: Value to add to memory
+    """
+    self.memory += value
+
+def memory_subtract(self, value):
+    """
+    Subtract a value from the memory.
+    
+    Args:
+        value: Value to subtract from memory
+    """
+    self.memory -= value
+    
