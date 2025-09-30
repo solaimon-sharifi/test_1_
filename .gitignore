@@ -1,14 +1,19 @@
-__pycache__/
-.venv/
+# Virtual Environment
 venv/
-env/
-ENV/
 new_venv/
-*.pyc
-*.pyo
-*.pyd
-dist/
-build/
-eggs/
-*.egg-info/
-__pypackages__/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+
+# OS specific
+.DS_Store
+Thumbs.db
