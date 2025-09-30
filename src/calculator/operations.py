@@ -13,17 +13,24 @@ def subtract(left, right):
     return left - right
 
 
-def multiply(left, right):
-    """Multiply two numbers and return the product."""
-    return left * right
+def multiply(a, b):
+    """Multiply two numbers and return the result."""
+    return a * b
 
-
-def divide(left, right):
-    """Divide left by right and return the quotient.
-
-    Raises:
-        ZeroDivisionError: If right is zero.
+def divide(a, b):
     """
-    if right == 0:
-        raise ZeroDivisionError("division by zero")
-    return left / right
+    Divide a by b and return the result.
+    
+    Args:
+        a: The dividend
+        b: The divisor
+            
+    Returns:
+        The quotient a/b
+            
+    Raises:
+        ZeroDivisionError: If b is 0
+    """
+    if b == 0:
+        raise ZeroDivisionError("Cannot divide by zero")
+    return a / b

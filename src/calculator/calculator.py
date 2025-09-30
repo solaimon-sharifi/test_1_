@@ -1,40 +1,49 @@
-"""Calculator class implementation.
-
-This module provides a Calculator class that uses the operations module.
-"""
+"""Calculator implementation that uses our operations."""
 from .operations import add, subtract, multiply, divide
 
-
 class Calculator:
-    """A simple calculator class that provides basic arithmetic operations.
-
-    This class uses the functions from the operations module to perform
-    calculations and keeps track of calculation history.
-    """
-
+    """Calculator class to perform arithmetic operations."""
+    
     def __init__(self):
-        """Initialize a new Calculator with empty history."""
-        self.history = []
-
+        """Initialize calculator with memory set to 0."""
+        self.memory = 0
+    
     def add(self, a, b):
-        result = add(a, b)
-        self.history.append(f"{a} + {b} = {result}")
-        return result
-
+        """Add two numbers."""
+        return add(a, b)
+    
     def subtract(self, a, b):
-        result = subtract(a, b)
-        self.history.append(f"{a} - {b} = {result}")
-        return result
-
+        """Subtract b from a."""
+        return subtract(a, b)
+    
     def multiply(self, a, b):
-        result = multiply(a, b)
-        self.history.append(f"{a} * {b} = {result}")
-        return result
-
+        """Multiply two numbers."""
+        return multiply(a, b)
+    
     def divide(self, a, b):
-        result = divide(a, b)
-        self.history.append(f"{a} / {b} = {result}")
-        return result
+        """Divide a by b."""
+        return divide(a, b)
+    
+    def memory_store(self, value):
+        """Store a value in memory."""
+        self.memory = value
+    
+    def memory_recall(self):
+        """Recall the value from memory."""
+        return self.memory
+    
+    def memory_clear(self):
+        """Clear the memory."""
+        self.memory = 0
 
-    def get_history(self):
-        return self.history
+        # Add to imports in calculator.py
+from .scientific import square_root, power
+
+# Add these methods to the Calculator class
+def square_root(self, x):
+    """Calculate the square root of x."""
+    return square_root(x)
+
+def power(self, base, exponent):
+    """Calculate base raised to the power of exponent."""
+    return power(base, exponent)
