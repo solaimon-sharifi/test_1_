@@ -2,14 +2,14 @@
 import math
 
 
-def square_root(x):
-    """Return the square root of x.
+def square_root(value):
+    """Return the square root of value.
 
     Raises ValueError for negative inputs.
     """
-    if x < 0:
+    if value < 0:
         raise ValueError("math domain error")
-    return math.sqrt(x)
+    return math.sqrt(value)
 
 
 def power(base, exponent):

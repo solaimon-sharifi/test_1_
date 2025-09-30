@@ -1,6 +1,14 @@
 """Calculator implementation that uses our operations and scientific helpers."""
-from .operations import add as ops_add, subtract as ops_subtract, multiply as ops_multiply, divide as ops_divide
-from .scientific import square_root as sci_sqrt, power as sci_power
+from .operations import (
+    add as ops_add,
+    subtract as ops_subtract,
+    multiply as ops_multiply,
+    divide as ops_divide,
+)
+from .scientific import (
+    square_root as sci_sqrt,
+    power as sci_power,
+)
 
 
 class Calculator:
@@ -54,9 +62,9 @@ class Calculator:
         self.memory -= value
 
     # Scientific helpers delegate to scientific module
-    def square_root(self, x):
-        """Return the square root of x (delegates to :func:`sci_sqrt`)."""
-        return sci_sqrt(x)
+    def square_root(self, value):
+        """Return the square root of value (delegates to :func:`sci_sqrt`)."""
+        return sci_sqrt(value)
 
     def power(self, base, exponent):
         """Return base ** exponent (delegates to :func:`sci_power`)."""
