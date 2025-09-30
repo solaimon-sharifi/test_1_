@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ main, feature/display ]
+    branches: [ '**' ]
   pull_request:
-    branches: [ main ]
+    branches: [ '**' ]
 
 jobs:
   test:
@@ -25,12 +25,12 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install -e .
 
-      - name: Run tests with coverage
+      - name: Lint with pylint
         run: |
-          pytest -q --cov=src/calculator --cov-report=xml --cov-report=term-missing
+          pylint src/calculator tests
 
-      - name: Run pylint
+      - name: Test with pytest
         run: |
-          pip install pylint
-          pylint -j 0 src/calculator
+          pytest --cov=src --cov-report=xml
