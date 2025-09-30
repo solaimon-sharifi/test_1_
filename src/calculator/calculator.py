@@ -1,68 +1,49 @@
-"""Calculator implementation that uses our operations."""
-from .operations import add, subtract, multiply, divide
+"""Calculator implementation that uses our operations and scientific helpers."""
+from .operations import add as ops_add, subtract as ops_subtract, multiply as ops_multiply, divide as ops_divide
+from .scientific import square_root as sci_sqrt, power as sci_power
+
 
 class Calculator:
-    """Calculator class to perform arithmetic operations."""
-    
-    def __init__(self):
+    """Calculator class to perform arithmetic operations and keep memory."""
+
+    def __init__(self) -> None:
         """Initialize calculator with memory set to 0."""
         self.memory = 0
-    
+
+    # Basic operations (wrap the functions from operations.py)
     def add(self, a, b):
-        """Add two numbers."""
-        return add(a, b)
-    
+        return ops_add(a, b)
+
     def subtract(self, a, b):
-        """Subtract b from a."""
-        return subtract(a, b)
-    
+        return ops_subtract(a, b)
+
     def multiply(self, a, b):
-        """Multiply two numbers."""
-        return multiply(a, b)
-    
+        return ops_multiply(a, b)
+
     def divide(self, a, b):
-        """Divide a by b."""
-        return divide(a, b)
-    
+        return ops_divide(a, b)
+
+    # Memory operations
     def memory_store(self, value):
-        """Store a value in memory."""
         self.memory = value
-    
+
     def memory_recall(self):
-        """Recall the value from memory."""
         return self.memory
-    
+
     def memory_clear(self):
-        """Clear the memory."""
         self.memory = 0
 
-        # Add to imports in calculator.py
-from .scientific import square_root, power
-
-# Add these methods to the Calculator class
-def square_root(self, x):
-    """Calculate the square root of x."""
-    return square_root(x)
-
-def power(self, base, exponent):
-    """Calculate base raised to the power of exponent."""
-    return power(base, exponent)
-
     def memory_add(self, value):
-    """
-    Add a value to the memory.
-    
-    Args:
-        value: Value to add to memory
-    """
-    self.memory += value
+        """Add a value to the stored memory."""
+        self.memory += value
 
-def memory_subtract(self, value):
-    """
-    Subtract a value from the memory.
-    
-    Args:
-        value: Value to subtract from memory
-    """
-    self.memory -= value
-    
+    def memory_subtract(self, value):
+        """Subtract a value from the stored memory."""
+        self.memory -= value
+
+    # Scientific helpers delegate to scientific module
+    def square_root(self, x):
+        return sci_sqrt(x)
+
+    def power(self, base, exponent):
+        return sci_power(base, exponent)
