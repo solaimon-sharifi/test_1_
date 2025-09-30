@@ -4,33 +4,45 @@ from .scientific import square_root as sci_sqrt, power as sci_power
 
 
 class Calculator:
-    """Calculator class to perform arithmetic operations and keep memory."""
+    """Calculator class to perform arithmetic operations and keep memory.
+
+    This class is a thin wrapper around the pure functions in
+    :mod:`calculator.operations` and :mod:`calculator.scientific` so the
+    public API is easier to test and extend.
+    """
 
     def __init__(self) -> None:
         """Initialize calculator with memory set to 0."""
         self.memory = 0
 
     # Basic operations (wrap the functions from operations.py)
-    def add(self, a, b):
-        return ops_add(a, b)
+    def add(self, left, right):
+        """Return left + right."""
+        return ops_add(left, right)
 
-    def subtract(self, a, b):
-        return ops_subtract(a, b)
+    def subtract(self, left, right):
+        """Return left - right."""
+        return ops_subtract(left, right)
 
-    def multiply(self, a, b):
-        return ops_multiply(a, b)
+    def multiply(self, left, right):
+        """Return left * right."""
+        return ops_multiply(left, right)
 
-    def divide(self, a, b):
-        return ops_divide(a, b)
+    def divide(self, left, right):
+        """Return left / right (raises ZeroDivisionError for div by 0)."""
+        return ops_divide(left, right)
 
     # Memory operations
     def memory_store(self, value):
+        """Store a numeric value in memory."""
         self.memory = value
 
     def memory_recall(self):
+        """Return the stored memory value."""
         return self.memory
 
     def memory_clear(self):
+        """Clear memory (set to 0)."""
         self.memory = 0
 
     def memory_add(self, value):
@@ -43,7 +55,9 @@ class Calculator:
 
     # Scientific helpers delegate to scientific module
     def square_root(self, x):
+        """Return the square root of x (delegates to :func:`sci_sqrt`)."""
         return sci_sqrt(x)
 
     def power(self, base, exponent):
+        """Return base ** exponent (delegates to :func:`sci_power`)."""
         return sci_power(base, exponent)

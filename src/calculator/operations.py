@@ -13,11 +13,12 @@ def subtract(left, right):
     return left - right
 
 
-def multiply(a, b):
+def multiply(left, right):
     """Multiply two numbers and return the result."""
-    return a * b
+    return left * right
 
-def divide(a, b):
+
+def divide(left, right):
     """
     Divide a by b and return the result.
     
@@ -31,6 +32,6 @@ def divide(a, b):
     Raises:
         ZeroDivisionError: If b is 0
     """
-    if b == 0:
+    if right == 0:
         raise ZeroDivisionError("Cannot divide by zero")
-    return a / b
+    return left / right
