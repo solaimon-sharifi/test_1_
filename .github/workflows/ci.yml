@@ -44,3 +44,18 @@ jobs:
           PYTHONPATH: src
         run: |
           pytest -q tests/e2e -k test_homepage_add
+
+      - name: Generate Playwright trace & screenshot
+        env:
+          PYTHONPATH: src
+          E2E_URL: http://127.0.0.1:8001/
+          ARTIFACT_DIR: artifacts
+        run: |
+          mkdir -p artifacts
+          python tests/e2e/trace_runner.py
+
+      - name: Upload Playwright artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-artifacts
+          path: artifacts/**
